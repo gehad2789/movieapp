@@ -1,0 +1,25 @@
+json [javascript object notation [text-based format]]: to allow interact[share data] betwwen server and client side[browser].
+-each object has property and value , drived from js. alternative/new version [better] for XML[markup languge] .
+most websites support APIs [applection programming interface].
+json : 
+{
+key: value;
+}
+ex :
+{
+    "name":"gehad",
+    "id":  1,
+    "attendence":true,
+    "pne":null,
+    "skills:["html", "js","css"],//array
+    "adress":  //object as i need to add key and value
+    {
+        "cairo":"madi",
+        " alx":"omar "
+    }
+}
+***************************       in json must use "" not ''     ******************************************************************8
+
+
+---------> json formatter and editor --> pass link --> output objects 
+--------->json editor-----> pass json object --> output data بطريقة مفهومة ومنظمة and can make link to save and share 

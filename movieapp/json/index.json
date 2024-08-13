@@ -1,0 +1,41 @@
+{
+    "name":"gehad",
+    "id":  1,
+    "attendence":true,
+    "pne":null,
+    "skills":[
+        ["html","pugjs"], 
+        ["js","node.js","vue.js"],
+        ["css","sass"]
+    ]
+    ,
+    "progress": [
+        {
+            "html":"60%",
+            "pugjs":"30%"
+},
+{
+
+    "js":"20%",
+    "node.js":"50%",
+    "vue.js":"40%"
+},
+{
+
+    "css":"60%",
+    "sass":"80%"
+}
+    ]
+    ,
+
+    "adress":  
+
+    {
+        "name":"gehad",
+
+        "cairo":"madi",
+        " alx":"omar ",
+        "germay":["one","two","three"]
+    }
+}
+

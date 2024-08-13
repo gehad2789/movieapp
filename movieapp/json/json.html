@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!--              jquery link               --------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <div class="show">
+
+    </div>
+    <div id="put">
+
+    </div>
+
+
+
+
+    <script>
+        //json object[can use singleqoute '' , json must use only"""]
+        let product1={
+    "name":"coca",
+    "id":1
+}
+
+let product2={
+    "name":"v cola",
+    "id":2
+}
+
+let product3={
+    "name":"chipcy",
+    "id":3
+}
+console.log(product1.id)
+console.log(product1.name)
+console.log(product2.id)
+
+
+//accsess to obj
+let jsontoobj={
+    "name":"gehad",
+    "id":  1,
+    "attendence":true,
+    "pne":null,
+    "skills":[
+        ["html","pugjs"], 
+        ["js","node.js","vue.js"],
+        ["css","sass"]
+    ]
+    ,
+    "progress":[
+        {
+            "html":"60%",
+            "pugjs":"30%"
+},
+{
+    "js":"20%",
+    "node.js":"50%",
+    "vue.js":"40%"
+},
+{
+    "css":"60%",
+    "sass":"80%",
+    "bootstrap":["20%","50%"]
+}
+    ]
+    ,
+
+    "adress":  
+    {
+        "cairo":"madi",
+        " alx":"omar ",
+        "germay":["one","two","three"]
+    }
+}
+console.log(jsontoobj.adress.germay[0]);
+console.log(jsontoobj.progress[0].html);//return 60%
+console.log(jsontoobj.progress[2].bootstrap[1]);//return botstrap 2nd value=50%
+
+
+//ex with api
+
+let apiKey = 'api_key=1cf50e6248dc270629e802686245c2c8';
+let baseUrl='https://api.themoviedb.org/3';
+let apiUrl= baseUrl + '/discover/movie?sort_by=popularity.desc&'+apiKey;
+
+
+async function getMovies(url){
+    url=apiUrl;
+    let response=await fetch(url);
+    let data=await response.json();
+    let finaldata=data.results;
+    console.log(finaldata);
+    let imgUrl='https://image.tmdb.org/t/p/w500'
+    document.querySelector(".show").innerHTML=`
+    <img src="${imgUrl+finaldata[0].poster_path}" alt="Lamp" width="500" height="400"><br>
+        ${finaldata[0].original_title}
+
+
+
+    `
+
+    
+
+}
+getMovies();
+
+
+
+/*************json to jsobj****/
+let myjsonobj='{"name":"osama", "age": "30"}'; //as string 
+let myjavascriptobj=JSON.parse(myjsonobj);
+
+
+console.log(myjavascriptobj); //return it in js format {name: 'osama', age: '30'}
+console.log(typeof(myjavascriptobj));//return object
+
+
+
+/***js object to json ****/apiKey
+let jsobj={name:"ali",age:20};
+
+let jsonobj=JSON.stringify(jsobj);
+console.log(jsonobj, typeof(jsonobj));//return {"name":"ali","age":20} string
+/**********************************************************************/apiKey
+//jquery 
+$(function(){
+    $.get('index.json', (data)=>{
+        console.log(data); //returned as jsobj
+        var content='';
+        console.log(data.name)
+        for(var el in data){
+            content+=data[el];
+
+            }
+            console.log(content);
+
+
+    })
+})
+console.log('************'+put)
+//$ajax
+$.ajax(
+    {
+        url:'index.json',
+        dataType:"json",
+        cashe:false,
+        success:function(data, status){
+            console.log(data);
+            console.log(status) ;
+            let content='';
+            $.each(data,(el)=>{
+                $("#put").append(
+                `
+                <div style='padding:20px; color:green;'>${data[el]}</div>
+                `
+            )
+                
+
+            })
+
+        },
+        error:function(xhr, textstatus,error){
+            console.log(xhr);
+            console.log(textstatus);
+            console.log(error);
+
+        }
+
+    }
+)
+
+
+
+
+    </script>
+    
+</body>
+</html>
